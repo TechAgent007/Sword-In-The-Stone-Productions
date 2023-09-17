@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/SnowAlexandreStyle.css">
+<meta charset="UTF-8">
+  <meta name="description" content="My personal experience with blacksmithing.">
+  <meta name="keywords" content="blacksmithing, hammer, forge, knives, armor">
+  <meta name="author" content="Alexandre H. Snow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact us</title>
+<style>
+	#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script src="js/menu.js"></script>
+</head>
+<body>
+<span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<div id="Navigation" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+	<a href="SnowAlexandreAssignment5.html" class="button"><span>Main</span></a>
+    <a href="about.html" class="button"><span>About</span></a>
+	<a href="services.html" class="button"><span>Services</span></a>
+    <a href="construction.html" class="button"><span>Getting Started<br>Cheap</span></a>
+	<a href="construction.html" class="button"><span>Shopping Sources</span></a>
+	<a href="construction.html" class="button"><span>Useful Links</span></a>
+</div>
+</div>
+<main>
+<a id="Contact"></a>
+<h3 style="text-align:center">Use this form to request a review of your idea.</h3><!--WEEK 5: I have already fiddled with the required feature for input in prep of the coming assignment-->
+<br><br>
+<div class="contactform">
+<form method="post" action="https://formsubmit.co/swordinthestoneproductions@gmail.com">
+	<div class="contact">
+		<fieldset>
+			<legend>E-mail:</legend> 
+			<input type="text" name="email" autofocus required><br><!--WEEK 6: autofocus and required-->
+		</fieldset>
+<br>
+		<fieldset>
+			<legend>Provide a brief description of what you'd like:</legend>
+				<input type="text" name="description" required><br><!--WEEK 6: required-->
+		</fieldset>
+	</div>
+<br>
+	<div class="contact">
+		<fieldset>
+			<legend>Additional Info:</legend> 
+			Describe in some detail, what your project entails, dimensions, colors, and other details.<br>(use the carot at the bottom-right corner to expand for ease of input.)<br>
+			<textarea class="contactinput" name="addinfo" rows="12" cols="100" required></textarea><!--WEEK 6: required-->
+		</fieldset>
+	</div>
+<br>
+<div>
+<h1>My Drag-and-Drop Example:To-do list</h1><!--Drag & Drop, intended to become a file upload interface.-->
+<div id="box1" class="exampleparent">
+  <div class="exampleorigin">
+    To-do
+    <div      id="draggable1"      class="exampledraggable"      draggable="true"      ondragstart="onDragStart(event);">To-do #1: Get a hammer.</div>
+    <div      id="draggable2"      class="exampledraggable"      draggable="true"      ondragstart="onDragStart(event);">To-do #2: Get fire (a forge.)</div>
+    <div      id="draggable3"      class="exampledraggable"      draggable="true"      ondragstart="onDragStart(event);">To-do #3: Get hard hitty surface (an anvil.)</div>
+    <div      id="draggable4"      class="exampledraggable"      draggable="true"      ondragstart="onDragStart(event);">To-do #4: Profit $$$</div>
+  </div>
+  <div    class="exampledropzone"    ondragover="onDragOver(event);"    ondrop="onDrop(event);">Done</div>
+</div>
+
+<br><br><br>
+
+<div class="contact">
+<br>
+	<div class="submitbuttons">
+		<fieldset class="buttons">
+			<legend class="buttons">Submit Your Request or Reset the form:</legend>
+			<br>
+				<button class="submitbutton">Submit</button>
+				<button class="resetbutton" type="reset" value="Reset" onclick="document.location.reload()">Reset</button><!--Reset form by refresh of page. Not my intended function but having issues getting it working right other ways.-->
+		</fieldset>
+	</div>
+</form>
+</div>
+<br><br><br>
+</main>
+<br>
+<footer>
+Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
+</footer>
+</body>
+</body>
+</html>

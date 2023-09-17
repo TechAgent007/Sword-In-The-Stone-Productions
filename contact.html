@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/SnowAlexandreStyle.css">
+<meta charset="UTF-8">
+  <meta name="description" content="My personal experience with blacksmithing.">
+  <meta name="keywords" content="blacksmithing, hammer, forge, knives, armor">
+  <meta name="author" content="Alexandre H. Snow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact us</title>
+<style>
+	#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+  /* Styles for the file upload container */
+  .file-upload-container {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto; /* Center the container */
+    width: 75%; /* Span it 75% */
+    background-color: lightgray; /* Background color */
+  }
+
+  .file-thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .file-thumbnail {
+    margin: 5px;
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .file-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Styles for hiding the default file input */
+  #fileInput {
+    display: none;
+  }
+</style>
+<script src="js/menu.js"></script>
+</head>
+<body>
+<span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<div id="Navigation" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+	<a href="index.html" class="button"><span>Main</span></a>
+    <a href="about.html" class="button"><span>About</span></a>
+	<a href="services.html" class="button"><span>Services</span></a>
+    <a href="construction.html" class="button"><span>Getting Started<br>Cheap</span></a>
+	<a href="construction.html" class="button"><span>Shopping Sources</span></a>
+	<a href="construction.html" class="button"><span>Useful Links</span></a>
+  </div>
+</div>
+<main>
+<aside id="quote-container"><!--This is a scroll-with-you displaying quotes by my favorite philosopher, different by page.-->
+“Antisthenes used to say that envious people were devoured by their own disposition, just as iron is by rust. Envy of others comes from comparing what they have with what the envious person has, rather than the envious person realizing they have more than what they could have and certainly more than some others and being grateful. It is really just an inability to get a correct perspective on their lives.” ~ Diogenes
+</aside>
+<a id="Contact"></a>
+<h3 style="text-align:center">Use this form to request a review of your idea.</h3><!--I have already fiddled with the required feature for input in prep of the coming assignment-->
+<br><br>
+<div class="contactform">
+  <form method="post" action="https://formsubmit.co/swordinthestoneproductions@gmail.com">
+    <div class="contact">
+      <fieldset>
+        <legend>E-mail:</legend> 
+        <input type="text" name="email" required><br>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Provide a brief description of what you'd like:</legend> 
+        <input type="text" name="description" required><br>
+      </fieldset>
+    </div>
+    <br>
+    <div class="contact">
+      <fieldset>
+        <legend>Additional Info:</legend> 
+        Describe in some detail, what your project entails, dimensions, colors, and other details.<br>(use the carot at the bottom-right corner to expand for ease of input.)<br>
+        <textarea class="contactinput" name="addinfo" rows="12" cols="100" required></textarea>
+      </fieldset>
+    </div>
+    <br><br><br>
+    <!-- File upload container (updated to support drag and drop) -->
+    <div class="file-upload-container" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+      <label for="fileInput">Drag and drop or click to upload a file</label>
+      <input type="file" id="fileInput" multiple>
+    </div>
+    <div class="file-thumbnails" id="fileThumbnails"></div>
+    <br><br><br>
+    <div class="contact">
+      <br>
+      <div class="submitbuttons">
+        <fieldset>
+          <legend class="buttons">Submit Your Request or Reset the form:</legend>
+          <button class="submitbutton">Submit</button>
+          <button class="resetbutton" type="reset" value="Reset" onclick="document.location.reload()">Reset</button><!--Reset form by refresh of page. Not my intended function but having issues getting it working right other ways.-->
+        </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
+<br><br><br>
+</main>
+<br>
+<footer>
+Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
+</footer>
+<script>
+  const fileThumbnails = document.getElementById('fileThumbnails');
+
+  function handleDragOver(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    fileThumbnails.innerHTML = '';
+
+    const files = event.dataTransfer.files;
+    for (const file of files) {
+      const thumbnailContainer = document.createElement('div');
+      thumbnailContainer.classList.add('file-thumbnail');
+
+      const thumbnailImage = document.createElement('img');
+      thumbnailImage.src = URL.createObjectURL(file);
+
+      thumbnailContainer.appendChild(thumbnailImage);
+      fileThumbnails.appendChild(thumbnailContainer);
+    }
+  }
+</script>
+</body>
+</html>

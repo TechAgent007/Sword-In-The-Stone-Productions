@@ -89,14 +89,17 @@
         <textarea class="contactinput" name="addinfo" rows="12" cols="100" required></textarea>
       </fieldset>
     </div>
-    <br><br><br>
-    <!-- File upload container (updated to support drag and drop) -->
+    
+    <!-- File upload container (updated to support both drag and drop and clicks) -->
     <div class="file-upload-container" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
       <label for="fileInput">Drag and drop or click to upload a file</label>
-      <input type="file" id="fileInput" multiple>
+      <input type="file" id="fileInput" multiple onchange="handleFiles(event)">
     </div>
+
     <div class="file-thumbnails" id="fileThumbnails"></div>
+
     <br><br><br>
+
     <div class="contact">
       <br>
       <div class="submitbuttons">
@@ -115,6 +118,7 @@
 <footer>
 Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
 </footer>
+
 <script>
   const fileThumbnails = document.getElementById('fileThumbnails');
 
@@ -125,9 +129,16 @@ Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordintheston
 
   function handleDrop(event) {
     event.preventDefault();
+    displayThumbnails(event.dataTransfer.files);
+  }
+
+  function handleFiles(event) {
+    displayThumbnails(event.target.files);
+  }
+
+  function displayThumbnails(files) {
     fileThumbnails.innerHTML = '';
 
-    const files = event.dataTransfer.files;
     for (const file of files) {
       const thumbnailContainer = document.createElement('div');
       thumbnailContainer.classList.add('file-thumbnail');

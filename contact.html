@@ -9,6 +9,7 @@
   <meta name="author" content="Alexandre H. Snow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact us</title>
+<!--Unfortunate Style situation, cannot get the CSS to read OR the script unless it's in the document for this setup-->
 <style>
   #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
   /* Styles for the file upload container */
@@ -53,20 +54,49 @@
   #fileInput {
     display: none;
   }
+   fieldset {/* WEEK 6: styled */
+    background-color: #00aaff;
+	border: solid 1px black;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 18px;
+    border-radius: 10px;
+}
+ 
+ legend {/* WEEK 6: styled */
+    background-color: #FADEB2;
+    padding: 5px 10px;
+    border: solid 1px black;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 18px;
+    border-radius: 10px;
+}
+
+ textarea { /* WEEK 7: styled */
+	resize: none;
+ }
+
+textarea.contactinput {margin: auto; width: 100%; clear: both;}
+textarea.contact input {margin: auto; width: 90%; clear: both;}
+legend.buttons {margin: auto; width: 90%; clear: both;}
+
+legend.buttons {
+    text-align: center;
+  }
 </style>
 <script src="js/menu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 <div id="Navigation" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
-  <a href="index.html" class="button"><span>Main</span></a>
+    <a href="SnowAlexandreAssignment7.html" class="button"><span>Main</span></a>
     <a href="about.html" class="button"><span>About</span></a>
-  <a href="services.html" class="button"><span>Services</span></a>
+    <a href="services.html" class="button"><span>Services</span></a>
     <a href="construction.html" class="button"><span>Getting Started<br>Cheap</span></a>
-  <a href="construction.html" class="button"><span>Shopping Sources</span></a>
-  <a href="construction.html" class="button"><span>Useful Links</span></a>
+    <a href="construction.html" class="button"><span>Shopping Sources</span></a>
+    <a href="construction.html" class="button"><span>Useful Links</span></a>
   </div>
 </div>
 <main>
@@ -81,26 +111,27 @@
     <div class="contact">
       <fieldset>
         <legend>E-mail:</legend> 
-        <input type="text" name="email" required><br>
+        <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email (my@email.com)" required><br>
       </fieldset>
       <br>
       <fieldset>
         <legend>Provide a brief description of what you'd like:</legend> 
-        <input type="text" name="description" required><br>
+        <input type="text" name="description" maxlength="150" placeholder="Enter a brief description (max 150 characters)" required><br>
       </fieldset>
     </div>
     <br>
     <div class="contact">
       <fieldset>
-        <legend>Additional Info:</legend> 
-        Describe in some detail, what your project entails, dimensions, colors, and other details.<br>(use the carot at the bottom-right corner to expand for ease of input.)<br>
-        <textarea class="contactinput" name="addinfo" rows="12" cols="100" required></textarea>
-      </fieldset>
+		<legend>Additional Info:</legend>
+		Describe in some detail, what your project entails, dimensions, colors, and other details.<br>
+		<textarea class="contactinput" name="addinfo" rows="12" cols="100" maxlength="2000" required placeholder="Enter more details"></textarea>
+		<div id="charCount" style="position: relative; bottom:; right: -600px;">Characters remaining: 2000</div>
+	  </fieldset>
     </div>
     <br><br><br>
     <!-- File upload container (updated to support both drag and drop and clicks) -->
     <div class="file-upload-container" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
-      <label for="fileInput">Drag and drop or click to upload a file</label>
+      <label for="fileInput">Drag and drop or click to upload a file, or<br>multiple files, no one file can exceed 5MB</label>
       <input type="file" id="fileInput" multiple onchange="handleFiles(event)" name="attachments[]">
     </div>
     <!-- Autoresponse -->
@@ -126,41 +157,42 @@
 Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
 </footer>
 <script>
+$(document).ready(function() {
+    $('textarea[name="addinfo"]').on('input', function() {
+      const remainingChars = 2000 - $(this).val().length;
+      $('#charCount').text(`Characters remaining: ${remainingChars}`);
+    });
+  });
   const fileThumbnails = document.getElementById('fileThumbnails');
 
-  function handleDragOver(event) {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'copy';
-  }
-
   function handleDrop(event) {
-    event.preventDefault();
-    displayThumbnails(event.dataTransfer.files);
+  event.preventDefault();
+  displayThumbnails(event.dataTransfer.files);
+}
+
+function handleFiles(event) {
+  displayThumbnails(event.target.files);
+}
+
+function displayThumbnails(files) {
+  fileThumbnails.innerHTML = '';
+
+  for (const file of files) {
+    const thumbnailContainer = document.createElement('div');
+    thumbnailContainer.classList.add('file-thumbnail');
+
+    const thumbnailImage = document.createElement('img');
+    thumbnailImage.src = URL.createObjectURL(file);
+
+    const fileName = document.createElement('div');
+    fileName.innerText = file.name;
+    fileName.classList.add('file-filename'); // Add the filename class
+
+    thumbnailContainer.appendChild(thumbnailImage);
+    thumbnailContainer.appendChild(fileName);
+    fileThumbnails.appendChild(thumbnailContainer);
   }
-
-  function handleFiles(event) {
-    displayThumbnails(event.target.files);
-  }
-
-  function displayThumbnails(files) {
-    fileThumbnails.innerHTML = '';
-
-    for (const file of files) {
-      const thumbnailContainer = document.createElement('div');
-      thumbnailContainer.classList.add('file-thumbnail');
-
-      const thumbnailImage = document.createElement('img');
-      thumbnailImage.src = URL.createObjectURL(file);
-
-      const fileName = document.createElement('div');
-      fileName.innerText = file.name;
-      fileName.classList.add('file-filename'); // Add the filename class
-
-      thumbnailContainer.appendChild(thumbnailImage);
-      thumbnailContainer.appendChild(fileName);
-      fileThumbnails.appendChild(thumbnailContainer);
-    }
-  }
+}
 </script>
 </body>
 </html>

@@ -111,9 +111,9 @@ div.contact {margin: auto; width: 75%; clear: both;}
 div.contact input {margin: auto; width: 100%; clear: both;}
 div.contact2 {display: inline; width: 50%;}
 div.submitbuttons{margin: auto; width: 50%;}
-textarea.contactinput {margin: auto; width: 100%; clear: both;}
-textarea.contact input {margin: auto; width: 90%; clear: both;}
-legend.buttons {margin: auto; width: 90%; clear: both;}
+textarea.contactinput {margin: auto; width: 100%; clear: both;}/* WEEK 6: styled */
+textarea.contact input {margin: auto; width: 90%; clear: both;}/* WEEK 6: styled */
+legend.buttons {margin: auto; width: 90%; clear: both;}/* WEEK 6: styled */
 
 .overlay {	height: 0%;  	width: 25%;  	position: fixed;  	z-index: 1;  	top: 0;  	left: 0;  	background-color: rgb(255,255,255);  	background-color: rgba(0,0,0, 0.9);  	overflow-y: hidden;  	transition: .70s;}
 .overlay-content {	position: relative;  	top: 15%;  	width: 100%;  	text-align: center;  	margin-top: 30px;}
@@ -137,11 +137,7 @@ legend.buttons {margin: auto; width: 90%; clear: both;}
 .resetbutton:hover,
 .resetbutton:focus-visible{  --_p: 0px;  outline-color: var(--color);  outline-offset: .05em;}
 .resetbutton:active {  background: var(--color);  color: #fff;}
-.exampleparent {  margin: 50px auto; width: 80%; height: 275px; border: 2px solid #DFA612;  color: black;  display: flex;  font-family: sans-serif;  font-weight: bold;}
-.exampleorigin {  flex-basis: 100%;  flex-grow: 1;  padding: 10px;}
-.exampledraggable {  background-color: #4AAE9B;  font-weight: normal;  margin-bottom: 10px;  margin-top: 10px;  padding: 10px;}
-.exampledropzone {  background: #7dbe6d;  flex-basis: 100%;  flex-grow: 1;  padding: 10px;}
-
-
-
-
+.exampleparent {  margin: 50px auto; width: 80%; height: 275px; border: 2px solid #DFA612;  color: black;  display: flex;  font-family: sans-serif;  font-weight: bold;}/* WEEK 6: styled */
+.exampleorigin {  flex-basis: 100%;  flex-grow: 1;  padding: 10px;}/* WEEK 6: styled */
+.exampledraggable {  background-color: #4AAE9B;  font-weight: normal;  margin-bottom: 10px;  margin-top: 10px;  padding: 10px;}/* WEEK 6: styled */
+.exampledropzone {  background: #7dbe6d;  flex-basis: 100%;  flex-grow: 1;  padding: 10px;}/* WEEK 6: styled */

@@ -1,95 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="css/SnowAlexandreStyle.css">
-<meta charset="UTF-8">
-  <meta name="description" content="My personal experience with blacksmithing.">
-  <meta name="keywords" content="blacksmithing, hammer, forge, knives, armor">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="css/SnowAlexandreStyle.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Shop for blacksmithing tools.">
+  <meta name="keywords" content="blacksmithing, hammer, forge, tongs, metal files, water tub, anvil">
   <meta name="author" content="Alexandre H. Snow">
-<title>Places to buy things</title>
-<script src="js/menu.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blacksmithing Tools</title>
+  <script src="js/menu.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVX9BeYPJ6bQ_eB4iPq5YEoc3RZYNRBms"></script>
+  <script>
+    function geocodeAddress() {
+      var address = document.getElementById('addressLine1').value + ', ' +
+                    document.getElementById('addressLine2').value + ', ' +
+                    document.getElementById('city').value + ', ' +
+                    document.getElementById('state').value + ', ' +
+                    document.getElementById('zipCode').value;
+
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status === 'OK') {
+          var mapOptions = {
+            center: results[0].geometry.location,
+            zoom: 15
+          };
+
+          var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+          var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+
+          map.setCenter(results[0].geometry.location);
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
 </head>
 <body>
-<span style="color:red;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-<div id="Navigation" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-	<a href="index.html" class="button"><span>Main</span></a>
-        <a href="about.html" class="button"><span>About</span></a>
-	<a href="services.html" class="button"><span>Services</span></a>
-        <a href="construction.html" class="button"><span>Getting Started<br>Cheap</span></a>
-	<a href="construction.html" class="button"><span>Useful Links</span></a>
-        <a href="contact.html" class="button"><span>Contact</span></a>
+  <span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+  <div id="Navigation" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="SnowAlexandreAssignment8.html" class="button"><span>Main</span></a>
+      <a href="about.html" class="button"><span>About</span></a>
+      <a href="services.html" class="button"><span>Services</span></a>
+      <a href="construction.html" class="button"><span>Getting Started<br>Cheap</span></a>
+      <a href="links.html" class="button"><span>Useful Links</span></a>
+      <a href="contact.html" class="button"><span>Contact</span></a>
+    </div>
   </div>
-</div>
-<main class="transition-wipe" id="transitioncontainer">
-<a id="Shopping"></a>
- <aside id="quote-container"><!--This is a scroll-with-you displaying quotes by my favorite philosopher, different by page.--></aside>
-This page will serve to share my experience with blacksmithing, some of what I find interesting.<br><br><br>
-<section>
-<h2>Some things about the trade</h2>
-<article>
-<h4><u>Basic Tools of The Trade</u></h4><p>
-<b>Hammer</b> - usually around 1.5 - 2.5 pounds. A good all-around hammer would be a flat faced with<br>
-rounded oppoosite face. We then have a straight peen, cross peen, and ball (mechanic's hammer).<br>
-Personally, I used a 4lb. short sledge.<br><br>
-<b>Tongs</b> - There are a plethora and a half of tongs one could use. The prefered and sought after<br>
-are called Wolf Jaw tongs. These are able to hold most common bar stock up to an inch, on the X<br>
-and Z axis. For the Y axis, we can simply rotate our wrist 90 degrees.<br><br>
-<b>File or Rasp</b> - Allows for material removal in specific areas where a hammer can't. Despite the<br>
-answer to all of life's question is to hammer it out, it's not always the best answer.<br><br>
-<b>Quench Tub</b> - Water is great for most things, but for fine tools, you should seek another<br>
-tub for oil. Used motor oil is a cheap source.<br><br>
-<b>Anvil</b> - Perhaps the most expensive tool. Ranging upwards of $,5000 for the BEST. Alternatively,<br>
-in a pinch, a chunk of rail from the railroad.<br><br>
-<b>FIRE!!</b> - You can beat metals cold but only so much before they become too brittle or too thin.<br>
-Fun fact, non-ferrous metals like copper, HARDEN when hammered or worked. You need fire to heat, then<br>
-quench them (in water) to aneal (return to base softness) them to work furhter. Where as ferrous<br>
-metals require heating and radiative cooling (just leave it alone soomewhere) to aneal it.<br><br>
-<b>Apron</b> - What...don't want to get too dirty, do you?<br><br>
+  <main class="transition-wipe" id="transitioncontainer">
+    <a id="Shopping"></a>
+    <aside id="quote-container"><!--This is a scroll-with-you displaying quotes by my favorite philosopher, different by page.--></aside>
+    <br><br><br>
+    <section>
+      <h2>Shop For Tools</h2>
+      <article>
+        <h4><u>Blacksmithing Tools</u></h4><p>
+          <a href="https://www.centaurforge.com/25-lbs-Centaur-Hilltop-Square-Face-Rounding-Hammer-w_-Hickory-Handle/productinfo/HT2.5SRH/">
+			<img src="img/HT2.5SRH_02.jpg" alt="Hammer Image" width="100" height="100">
+          </a>
+		  <b>Hammer</b><br><br>
 
-<h4><u>Some important Things To Practice</u></h4><p>
-<b>Accuracy</b> - Being able to hit the mark is important. If you can't hit the metal, you'll hit the<br>
-anvil and dent it. And if you're standing in the wrong spot over the work, it WILL bounce back and<br>
-smack you in the face.<br><br>
-<b>Timing</b> - You may have seen videos where a smith taps his hammer rhythmically between hammer swings.<br>
-This is to create momentum to bring the hammer back up after needing a moment to plan the next hit, or,<br>
-when working with others on a large pace, a signal as to when they should swing their hammer. This<br>
-technique is used when training an apprecntice to teach them ques.<br><br>
-<b>Visual Temperatures</b> - Low-light is a smith's best friend with temperatures. We learn about how<br>
-metal changes color based on heat. Anyone who knows anything about crystaline structures & chemistry<br>
-knows rxactly what I am referencing. The common item we forge, steel, goes from a dull read at about<br>
-500 degrees, to sparking and burning (yes you can burn metal) at 2300 degrees. As we approach the upper<br>
-temperature, we would be able to do forge welding, two peices are heated and then hammered together.<br><br>
+          <a href="https://www.centaurforge.com/Centaur-2-Wolfs-Jaw-Tongs-12-Rein-Length/productinfo/209500/">
+			<img src="img/209500_02.jpg" alt="Tongs Image" width="100" height="100">
+		  </a>
+          <b>Tongs</b><br><br>
 
-<h4><u>Things To Make</u></h4><p>
-<b>Trinkets</b> - Charm bracelets and charms, keychains, abstract items or representation.<br><br>
-<b>Fire Place Screens</b> - Beautiful 3-D art to protect people from getting into a fire, and the fire<br>
-spilling out, too.<br><br>
-<b>Gates</b> - Think driveways and walkway or garden gates.<br><br>
-<b>Fences</b> - To go with the gates or just a beautiful fence on its own.<br><br>
-<b>Everyday Items</b> - Cooking utensil, candle holders, lighting, shelves, tables, etc...<br><br>
-<b>Historical Items</b> - Swords, knives, armor, and the like.<br><br>
-</article>
+          <a href="https://www.centaurforge.com/14-Bellota-Prime-Finish-Plus-Finish-File/productinfo/PRIMEFINISH/">
+			<img src="img/PRIMEFINISH_02.jpg" alt="Metal Files Image" width="100" height="100"></a>
+          <b>Files and Rasps</b><br><br>
 
-</section>
+          <a href="https://www.ameribrade.com/parts-belts/quench-tank">
+			<img src="img/quench_background_swap-2.png" alt="Water Tub Image" width="100" height="100">
+		  </a>
+          <b>Quench Tub</b><br><br>
 
-<section>
-<h2>Examples of what we can do</h2>
-<article>
-<h4 style="font-family: verdana; font-weight: bold; font-size: 25px; color: black; text-shadow: 3px 3px 5px #6a5acd">Favorite One</h4>
-Perhaps the most enjoyable object I've ever worked on, is a particular driveway gate for a Native American<br>
-casino, Mohegan Sun. In the image below, you will see half the gate. The eagle is almost as tall as one of<br>
-the smiths, nearly 6' tall, and one of my mentors, and a certified historical master smith. I helped<br>
-repose the animals, patine the copper (make it age to the green color), and also I was responsible for<br>
-welding the gate stops.<br>
-</article>
-</section>
+          <a href="https://www.centaurforge.com/200-lbs-JHM-Legend-Anvil/productinfo/AB200LEGEND/">
+            <img src="img/AB200Legend_800b.jpg" alt="Anvil Image" width="100" height="100">
+          </a>
+          <b>Anvil</b><br><br>
 
-</main>
+          <a href="https://www.centaurforge.com/24-Wide-Shop-Coal-Forge-Dumping-Ashgate-HC-Blower-24-Hood/productinfo/SVDHC24/">
+            <img src="img/SVDHC24_02_.jpg" alt="Forge Image" width="100" height="100">
+          </a>
+          <b>Forge</b><br>
+        </article>
+      </section>
+      <section style="text-align: center; padding: 20px;">
+        <h2>Delivery Address</h2>
+        <form id="deliveryAddressForm" style="margin: auto; width: 80%; padding: 0px;" onsubmit="geocodeAddress(); return false;">
+          <fieldset>
+            <legend>Delivery Address Form</legend>
+            <div class="contactform">
+              <div class="contact">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+              </div>
+              <br>
+              <div class="contact">
+                <label for="addressLine1">Address Line 1:</label>
+                <input type="text" id="addressLine1" name="addressLine1" required>
+              </div>
+              <br>
+              <div class="contact">
+                <label for="addressLine2">Address Line 2:</label>
+                <input type="text" id="addressLine2" name="addressLine2">
+              </div>
+              <br><br>
+              <div class="contact2">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" style="width: 200px;" required>
+              </div>
 
-<footer>
-Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
-</footer>
-</body>
+              <div class="contact2">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" style="width: 200px;" required>
+              </div>
+
+              <div class="contact2">
+                <label for="zipCode">Zip Code:</label>
+                <input type="text" id="zipCode" name="zipCode" style="width: 200px;" required>
+              </div>
+            </div>
+            <br><br><br>
+            <div class="submitbuttons">
+              <input class="submitbutton" type="submit" value="Submit" style="width: 100px; margin-right: 20px;">
+              <input class="resetbutton" type="reset" value="Reset" style="width: 100px;">
+            </div>
+          </fieldset>
+        </form>
+        <div id="map" style="width: 80%; height: 400px; margin: 20px auto;"></div>
+      </section>
+      <br><br>
+    </main>
+    <footer>
+      Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
+    </footer>
+  </body>
+  </html>

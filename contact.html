@@ -7,8 +7,9 @@
   <meta name="description" content="My personal experience with blacksmithing.">
   <meta name="keywords" content="blacksmithing, hammer, forge, knives, armor">
   <meta name="author" content="Alexandre H. Snow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact us</title>
-<!--Unfortunate Style situation, cannot get the CSS to read OR the script unless it's in the document for this setup-->
+<!--WEEK 6: Unfortunate Style situation, cannot get the CSS to read OR the script unless it's in the document for this setup-->
 <style>
   #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
   /* Styles for the file upload container */
@@ -78,7 +79,7 @@ textarea.contactinput {margin: auto; width: 100%; clear: both;}
 textarea.contact input {margin: auto; width: 90%; clear: both;}
 legend.buttons {margin: auto; width: 90%; clear: both;}
 
-legend.buttons {
+legend.buttons { /* WEEK 6: styled */
     text-align: center;
   }
 </style>
@@ -90,16 +91,16 @@ legend.buttons {
 <div id="Navigation" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
-    <a href="index.html" class="button"><span>Main</span></a>
+    <a href="SnowAlexandreAssignment8.html" class="button"><span>Main</span></a>
     <a href="about.html" class="button"><span>About</span></a>
     <a href="services.html" class="button"><span>Services</span></a>
     <a href="construction.html" class="button"><span>Getting Started<br>Cheap</span></a>
-    <a href="construction.html" class="button"><span>Shopping Sources</span></a>
-    <a href="construction.html" class="button"><span>Useful Links</span></a>
+    <a href="shopping.html" class="button"><span>Shopping Sources</span></a>
+    <a href="links.html" class="button"><span>Useful Links</span></a>
   </div>
 </div>
 <main>
-<aside id="quote-container"><!--This is a scroll-with-you displaying quotes by my favorite philosopher, different by page.-->
+<aside id="quote-container"><!-- WEEK 6: randomized This is a scroll-with-you displaying quotes by my favorite philosopher, different by page.-->
 “Antisthenes used to say that envious people were devoured by their own disposition, just as iron is by rust. Envy of others comes from comparing what they have with what the envious person has, rather than the envious person realizing they have more than what they could have and certainly more than some others and being grateful. It is really just an inability to get a correct perspective on their lives.” ~ Diogenes
 </aside>
 <a id="Contact"></a>
@@ -121,19 +122,20 @@ legend.buttons {
     <br>
     <div class="contact">
       <fieldset>
-		<legend>Additional Info:</legend>
+		<legend>Additional Info:</legend><!-- WEEK 7: input validation--> 
 		Describe in some detail, what your project entails, dimensions, colors, and other details.<br>
-		<textarea class="contactinput" name="addinfo" rows="12" cols="100" maxlength="2000" required placeholder="Enter more details"></textarea>
-		<div id="charCount" style="position: relative; bottom:; right: -600px;">Characters remaining: 2000</div>
+		<textarea class="contactinput" name="addinfo" rows="12" cols="100" maxlength="2000" required placeholder="Enter more details">
+		</textarea>
+		<div id="charCount" style="position: relative; bottom: 0; right: -600px;">Characters remaining: 2000</div>
 	  </fieldset>
     </div>
     <br><br><br>
-    <!-- File upload container (updated to support both drag and drop and clicks) -->
+    <!-- WEEK 6: File upload container (updated to support both drag and drop and clicks) -->
     <div class="file-upload-container" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
       <label for="fileInput">Drag and drop or click to upload a file, or<br>multiple files, no one file can exceed 5MB</label>
       <input type="file" id="fileInput" multiple onchange="handleFiles(event)" name="attachments[]">
     </div>
-    <!-- Autoresponse -->
+    <!-- WEEK 6: Autoresponse -->
     <input type="hidden" name="_autoresponse" value="We have received your submission! We will get back to you as soon as possible, Thank you!">
     <div class="file-thumbnails" id="fileThumbnails"></div>
     <br><br><br>
@@ -143,7 +145,7 @@ legend.buttons {
         <fieldset>
           <legend class="buttons">Submit Your Request or Reset the form:</legend>
           <button class="submitbutton">Submit</button>
-          <button class="resetbutton" type="reset" value="Reset" onclick="document.location.reload()">Reset</button><!--Reset form by refresh of page. Not my intended function but having issues getting it working right other ways.-->
+          <button class="resetbutton" type="reset" value="Reset" onclick="document.location.reload()">Reset</button><!--WEEK 5: Reset form by refresh of page. Not my intended function but having issues getting it working right other ways.-->
         </fieldset>
       </div>
     </div>
@@ -155,13 +157,14 @@ legend.buttons {
 <footer>
 Copyright 2023 | Sword in the Stone Productions | <a href="mailto:swordinthestoneproductions@gmail.com">Email us!</a>
 </footer>
-<script>
+<script><!--WEEK 7: -->
 $(document).ready(function() {
     $('textarea[name="addinfo"]').on('input', function() {
       const remainingChars = 2000 - $(this).val().length;
       $('#charCount').text(`Characters remaining: ${remainingChars}`);
     });
   });
+  <!--WEEK 6: -->
   const fileThumbnails = document.getElementById('fileThumbnails');
 
   function handleDrop(event) {

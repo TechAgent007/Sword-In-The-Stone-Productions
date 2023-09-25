@@ -3,7 +3,7 @@ function openNav() {document.getElementById("Navigation").style.height = "100%";
 function closeNav() {document.getElementById("Navigation").style.height = "0%"; }
 //end Menu
 
-//start generate a random quote when the page loads
+//start generate a random quote when the page loads WEEK 6: styled
 const quotes = [
 "“People who talk well but do nothing are like musical instruments; the sound is all they have to offer.” ~ Diogenes",
 "“I pissed on the man who called me a dog. Why was he so surprised?” ~ Diogenes",
